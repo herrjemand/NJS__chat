@@ -21,14 +21,14 @@ var ascii =
 "\n                   To exit type 'endpoint'."+
 "\n|---------------------------------------------------------------|\n \n"
 
-var port = 9999;
-var net = require('net')
+var port = 5000;
+var net = require('net');
 //var crp = require('crypto')
-var chatServer = net.createServer()
-	clientList = []
+var chatServer = net.createServer();
+	clientList = [];
 	chatServer.on('connection', function(client) {
-	client.name = /*client.remoteAddress + ':' + */client.remotePort
-	client.write(ascii)
+	client.name = /*client.remoteAddress + ':' + */client.remotePort;
+	client.write(ascii);
 
 	//client.write("\u001b[mMe>" );
 
