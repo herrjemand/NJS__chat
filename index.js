@@ -26,7 +26,7 @@ var net = require('net')
 //var crp = require('crypto')
 var chatServer = net.createServer()
 	clientList = []
-chatServer.on('connection', function(client) {
+	chatServer.on('connection', function(client) {
 	client.name = /*client.remoteAddress + ':' + */client.remotePort
 	client.write(ascii)
 
@@ -38,7 +38,9 @@ chatServer.on('connection', function(client) {
 	client.on('data', function(data) {	
 		broadcast(data, client)
 	})
- 
+  	client.on('error', function(err){
+        console.log(err);
+    });
 	client.on('end', function() { 
 		broadcast("endpoint", client)
   })
