@@ -21,7 +21,7 @@ var ascii =
 "\n                   To exit type 'endpoint'."+
 "\n|---------------------------------------------------------------|\n \n"
 
-var port = 5000;
+var port = process.env.PORT || 5000;
 var net = require('net');
 //var crp = require('crypto')
 var chatServer = net.createServer();
@@ -68,7 +68,7 @@ function broadcast(message, client) {
 		}
 }
  
-chatServer.listen(9999)
+chatServer.listen(5000);
 //console.log('\u001b[2J\u001b[0;0H')
 console.log("\n"+ascii);
 console.log('\n                   Listening port ' + port + "...\n");
